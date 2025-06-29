@@ -151,9 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function switchPersona(persona) {
             const data = personas[persona];
-            
+
             heroTextContent.classList.add('fade-out');
-            
+
             setTimeout(() => {
                 headlineEl.textContent = data.headline;
                 paragraphEl.textContent = data.paragraph;
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 slider.style.transform = `translateX(${studentBtn.offsetWidth}px)`;
             }
         }
-        
+
         // Initial setup
         slider.style.width = `${studentBtn.offsetWidth}px`;
         switchPersona('student');
@@ -212,20 +212,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.5 });
-    
+
     if (statsSection) {
         statObserver.observe(statsSection);
     }
 
 
     // --- General Scroll Animations ---
+    // General Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
+
+                // Handle different slide animations
                 if (entry.target.classList.contains('slide-up-on-scroll')) {
                     entry.target.style.transform = 'translateY(0)';
                 }
+                if (entry.target.classList.contains('slide-in-left')) {
+                    entry.target.style.transform = 'translateX(0)'; /* ADD THIS */
+                }
+                if (entry.target.classList.contains('slide-in-right')) {
+                    entry.target.style.transform = 'translateX(0)'; /* ADD THIS */
+                }
+
                 observer.unobserve(entry.target);
             }
         });
@@ -233,4 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
     elementsToAnimate.forEach(el => observer.observe(el));
+
+    document.body.classList.add('js-ready'); 
 });
