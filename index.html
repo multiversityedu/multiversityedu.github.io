@@ -1,0 +1,155 @@
+<!-- FILENAME: index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiversity - Your Universe of Teaching and Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header (Copy from previous version) -->
+        <header class="main-header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">Multi<span>versity</span></a>
+            <ul class="nav-links">
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="for-educators.html">For Educators</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-secondary">Log In</a>
+                <a href="register.html" class="btn btn-primary">Get Started Free</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Interactive Hero Section -->
+        <section class="hero-interactive">
+            <div class="hero-background"></div>
+            <div class="hero-toggle animate-on-scroll">
+                <button id="student-btn" class="toggle-btn active" data-persona="student">For Students</button>
+                <button id="educator-btn" class="toggle-btn" data-persona="educator">For Educators</button>
+                <div class="slider"></div>
+            </div>
+
+            <div class="hero-text-content">
+                <h1></h1>
+                <p></p>
+                <div class="hero-cta">
+                    <a href="#" id="hero-cta-1" class="btn btn-primary btn-large"></a>
+                    <a href="#" id="hero-cta-2" class="btn btn-secondary btn-large"></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h2 class="stat-counter" data-target="10000">0+</h2>
+                    <p>Students Learning</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-counter" data-target="500">0+</h2>
+                    <p>Expert Educators</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-counter" data-target="1200">0+</h2>
+                    <p>Courses & Cohorts</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Multiversity Section -->
+        <section class="container" style="text-align: center;">
+            <h2 class="animate-on-scroll">The Platform for Serious Learning</h2>
+            <div class="feature-grid" style="margin-top: 40px;">
+                <div class="feature-card animate-on-scroll slide-up-on-scroll">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg></div>
+                    <h3>Full Control</h3>
+                    <p>Educators own their content and pricing. Students get a direct, focused learning path.</p>
+                </div>
+                <div class="feature-card animate-on-scroll slide-up-on-scroll" style="transition-delay: 200ms;">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg></div>
+                    <h3>Structured Learning</h3>
+                    <p>Say goodbye to distractions. Our platform is built for deep learning with cohorts and communities.</p>
+                </div>
+                <div class="feature-card animate-on-scroll slide-up-on-scroll" style="transition-delay: 400ms;">
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12l-1.5 1.5m1.5-1.5l1.5 1.5" /></svg></div>
+                    <h3>True Partnership</h3>
+                    <p>Our commission-based model means we only succeed when our educators do. No monthly fees.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Courses Section -->
+        <section class="course-section container">
+            <h2 class="animate-on-scroll" style="text-align: center;">Start Your Learning Journey Today</h2>
+            <p class="animate-on-scroll" style="text-align: center; max-width: 600px; margin: -20px auto 40px auto;">A few of our most popular courses to get you started.</p>
+            <div class="course-grid">
+                <!-- Copy 3 of your best course cards from courses.html here -->
+                <a href="#" class="course-card animate-on-scroll slide-up-on-scroll">...</a>
+                <a href="#" class="course-card animate-on-scroll slide-up-on-scroll" style="transition-delay: 200ms;">...</a>
+                <a href="#" class="course-card animate-on-scroll slide-up-on-scroll" style="transition-delay: 400ms;">...</a>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section">
+            <div class="container animate-on-scroll">
+                <h2>Ready to Join the Revolution?</h2>
+                <a href="register.html" class="btn btn-primary btn-large">Get Started For Free</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Copy from previous version) -->
+<footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="#">Explore Courses</a></li>
+                    <li><a href="for-educators.html">For Educators</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="#">Institutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="terms.html#privacy">Privacy Policy</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Multiversity. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
