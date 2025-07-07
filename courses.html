@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multiversity - The All-In-One Platform for Education</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!-- Header -->
+    <!-- THE CORRECT STRUCTURE -->
     <header class="main-header">
         <nav class="main-nav">
             <a href="index.html" class="logo">Multi<span>versity</span></a>
             <ul class="nav-links">
                 <li><a href="courses.html">Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="for-students.html">For Students</a></li>
                 <li><a href="for-educators.html">For Educators</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
             <div class="nav-buttons">
                 <a href="login.html" class="btn btn-secondary">Log In</a>
@@ -24,6 +28,7 @@
             </div>
         </nav>
     </header>
+
 
     <!-- Main Content -->
     <main>
@@ -72,31 +77,56 @@
                             <p class="course-card-description">Become a full-stack developer with just one course. HTML,
                                 CSS, Javascript, Node, React, and more!</p>
                             <div class="course-card-details">
-                                <div class="detail-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z"
-                                            clip-rule="evenodd" />
-                                    </svg> <span>16 Weeks</span></div>
-                                <div class="detail-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c0-.414.336-.75.75-.75h10.5a.75.75 0 010 1.5H5.5a.75.75 0 01-.75-.75z"
-                                            clip-rule="evenodd" />
-                                    </svg> <span>Starts Aug 1st</span></div>
-                                <div class="detail-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="M7 8a3 3 0 100-6 3 3 0 000 6zM14.5 9a.75.75 0 01.75.75v.008a.75.75 0 01-1.5 0V9.75a.75.75 0 01.75-.75zM11.25 9.75a.75.75 0 00-1.5 0v.008a.75.75 0 001.5 0V9.75zM5 10.25a.75.75 0 00-1.5 0v.008a.75.75 0 001.5 0v-.008zM7 11.25a.75.75 0 00-1.5 0v.008a.75.75 0 001.5 0v-.008zM9.75 10.25a.75.75 0 00-1.5 0v.008a.75.75 0 001.5 0v-.008zM11 13a3 3 0 100-6 3 3 0 000 6zM15.25 11.25a.75.75 0 00-1.5 0v.008a.75.75 0 001.5 0v-.008zM12.25 13.75a.75.75 0 00-1.5 0v.008a.75.75 0 001.5 0v-.008z" />
-                                    </svg> <span>150+ Enrolled</span></div>
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>16 Weeks</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">event</span>
+                                    <span>Starts Aug 1st</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">groups</span>
+                                    <span>150+ Enrolled</span>
+                                </div>
                             </div>
                             <div class="course-card-footer">
-                                <div class="course-card-instructor"><img src="https://i.pravatar.cc/40?u=a"
-                                        alt=""><span>Anil Chowdhury</span></div>
+                                <div class="course-card-instructor">
+                                    <img src="https://i.pravatar.cc/40?u=a" alt="">
+                                    <span>Anil Chowdhury</span>
+                                </div>
                                 <div class="course-card-price">₹4,999<span>/mo</span></div>
                             </div>
                         </div>
                     </a>
+
+                    <a href="#" class="course-card animate-on-scroll slide-up-on-scroll">
+                        <div class="course-card-image">
+                            <img src="data-science-course.webp" alt="Data Science Course">
+                            <span class="course-card-type-tag recorded">SELF-PACED</span>
+                        </div>
+                        <div class="course-card-content">
+                            <span class="course-card-tag">Data Science</span>
+                            <h3 class="course-card-title">Data Science Mastery with Python</h3>
+                            <p class="course-card-description">Master NumPy, Pandas, Scikit-Learn, and real-world ML
+                                projects in one course.</p>
+                            <div class="course-card-details">
+                                <div class="detail-item"><span class="material-icons">schedule</span><span>30 Hours
+                                        Video</span></div>
+                                <div class="detail-item"><span
+                                        class="material-icons">event_available</span><span>Available Anytime</span>
+                                </div>
+                                <div class="detail-item"><span class="material-icons">groups</span><span>2,100+
+                                        Enrolled</span></div>
+                            </div>
+                            <div class="course-card-footer">
+                                <div class="course-card-instructor"><img src="https://i.pravatar.cc/40?u=ds"
+                                        alt=""><span>Sneha Ray</span></div>
+                                <div class="course-card-price">₹2,499</div>
+                            </div>
+                        </div>
+                    </a>
+
 
                     <!-- CARD EXAMPLE 2: Self-Paced Recorded Course -->
                     <a href="#" class="course-card animate-on-scroll slide-up-on-scroll"
@@ -112,9 +142,18 @@
                             <p class="course-card-description">Go from beginner to pro in Figma. Learn all you need to
                                 design beautiful, modern interfaces.</p>
                             <div class="course-card-details">
-                                <div class="detail-item"><svg ...></svg> <span>22 Hours Video</span></div>
-                                <div class="detail-item"><svg ...></svg> <span>Available Now</span></div>
-                                <div class="detail-item"><svg ...></svg> <span>5,000+ Enrolled</span></div>
+                                <div class="detail-item">
+                                    <span class="material-icons">schedule</span>
+                                    <span>22 Hours Video</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">event</span>
+                                    <span>Available Now</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="material-icons">groups</span>
+                                    <span>5,000+ Enrolled</span>
+                                </div>
                             </div>
                             <div class="course-card-footer">
                                 <div class="course-card-instructor"><img src="https://i.pravatar.cc/40?u=b"
@@ -123,6 +162,8 @@
                             </div>
                         </div>
                     </a>
+
+
 
                     <!-- CARD EXAMPLE 3: Live Cohort (In Progress) -->
                     <a href="#" class="course-card animate-on-scroll slide-up-on-scroll"
@@ -138,9 +179,12 @@
                             <p class="course-card-description">Master Google Ads, SEO, Social Media Marketing, and more
                                 to grow any business online.</p>
                             <div class="course-card-details">
-                                <div class="detail-item"><svg ...></svg> <span>10 Weeks</span></div>
-                                <div class="detail-item"><svg ...></svg> <span>In Progress</span></div>
-                                <div class="detail-item"><svg ...></svg> <span>450+ Enrolled</span></div>
+                                <div class="detail-item"><span class="material-icons">schedule</span> <span>10
+                                        Weeks</span></div>
+                                <div class="detail-item"><span class="material-icons">event</span><span>In
+                                        Progress</span></div>
+                                <div class="detail-item"><span class="material-icons">groups</span><span>450+
+                                        Enrolled</span></div>
                             </div>
                             <div class="course-card-footer">
                                 <div class="course-card-instructor"><img src="https://i.pravatar.cc/40?u=c"
@@ -164,31 +208,32 @@
                     <li><a href="courses.html">Explore Courses</a></li>
                     <li><a href="for-educators.html">For Educators</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="#">Institutions</a></li>
+                    <li><a href="institutions.html">Institutions</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Careers</a></li>
+                    <li><a href="careers.html">Careers</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Community</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h4>Legal</h4>
                 <ul>
                     <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="terms.html#privacy">Privacy Policy</a></li>
-                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="refund-policy.html">Refund Policy</a></li>
                 </ul>
             </div>
         </div>

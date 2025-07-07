@@ -114,6 +114,29 @@
 // });
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- NEW: INTELLIGENT Mobile Menu Logic ---
+    const mainNav = document.querySelector('.main-nav');
+    if (mainNav) {
+        if (window.innerWidth < 1313) {
+            const navLinks = mainNav.querySelector('.nav-links');
+            const mobileMenuButton = document.createElement('button');
+            mobileMenuButton.classList.add('mobile-menu-toggle');
+            mobileMenuButton.setAttribute('aria-label', 'Toggle Menu');
+            mobileMenuButton.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-4 6h4" />
+            </svg>
+        `;
+
+            mainNav.appendChild(mobileMenuButton);
+
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    }
+
+
     // --- Interactive Hero Logic ---
     const heroSection = document.querySelector('.hero-interactive');
     if (heroSection) {
@@ -135,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cta1_text: "Explore Courses",
                 cta1_link: "courses.html",
                 cta2_text: "How it Works",
-                cta2_link: "#",
+                cta2_link: "for-students.html",
                 bg_image: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1742&auto=format&fit=crop')"
             },
             educator: {
@@ -217,6 +240,19 @@ document.addEventListener('DOMContentLoaded', () => {
         statObserver.observe(statsSection);
     }
 
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Close other active items
+            const currentlyActive = document.querySelector('.faq-item.active');
+            if (currentlyActive && currentlyActive !== item) {
+                currentlyActive.classList.remove('active');
+            }
+            // Toggle the clicked item
+            item.classList.toggle('active');
+        });
+    });
 
     // --- General Scroll Animations ---
     // General Scroll Animations
@@ -243,6 +279,247 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
     elementsToAnimate.forEach(el => observer.observe(el));
+    
 
-    document.body.classList.add('js-ready'); 
+    document.body.classList.add('js-ready');
 });
+
+// --- Professional Teacher Dashboard Charts ---
+// This check ensures the code only runs if the chart elements exist on the page
+if (document.getElementById('revenueChartPro') && document.getElementById('engagementChartPro')) {
+    
+    // Combined Revenue & Student Growth Chart
+    const revenueChartProCtx = document.getElementById('revenueChartPro').getContext('2d');
+    new Chart(revenueChartProCtx, {
+        type: 'bar',
+        data: {
+            labels: ['April', 'May', 'June', 'July', 'August', 'September'],
+            datasets: [
+                {
+                    label: 'Revenue (₹)',
+                    data: [85000, 102000, 124500, 110000, 158400, 175000],
+                    backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                    borderColor: 'var(--accent-blue)',
+                    borderWidth: 1,
+                    yAxisID: 'y',
+                },
+                {
+                    label: 'New Students',
+                    data: [80, 95, 120, 105, 124, 140],
+                    type: 'line',
+                    borderColor: 'var(--success-green)',
+                    backgroundColor: 'rgba(56, 161, 105, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    yAxisID: 'y1',
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    grid: { color: 'var(--border-color)' },
+                    ticks: {
+                        color: 'var(--primary-text)',
+                        callback: function(value) { return '₹' + (value / 1000) + 'k' }
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    grid: { drawOnChartArea: false, },
+                    ticks: { color: 'var(--primary-text)' }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { color: 'var(--primary-text)' }
+                }
+            },
+            plugins: {
+                legend: { position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.dataset.yAxisID === 'y') {
+                                label += new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(context.parsed.y);
+                            } else {
+                                label += context.parsed.y + ' students';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Enrollment Doughnut Chart
+    const engagementChartProCtx = document.getElementById('engagementChartPro').getContext('2d');
+    new Chart(engagementChartProCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Self-Paced Courses', 'Live Cohorts', 'Workshops'],
+            datasets: [{
+                label: 'Enrollments',
+                data: [1345, 980, 133],
+                backgroundColor: [
+                    'rgba(59, 130, 246, 0.8)', // accent-blue
+                    'rgba(56, 161, 105, 0.8)', // success-green
+                    'rgba(245, 158, 11, 0.8)'  // amber
+                ],
+                borderColor: 'var(--text-light)',
+                borderWidth: 4,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: 'var(--primary-text)',
+                        padding: 20,
+                        font: { size: 14 }
+                    }
+                },
+            }
+        }
+    });
+}
+
+// // --- Terms of Service Page: Sticky Navigation & Scroll-Spy ---
+// const legalNav = document.querySelector('.legal-nav');
+
+// // Only run this code if we are on the terms page
+// if (legalNav) {
+//     const navLinks = legalNav.querySelectorAll('a');
+//     const contentSections = document.querySelectorAll('.legal-content section');
+
+//     const observerOptions = {
+//         rootMargin: '-20% 0px -75% 0px', // Highlights when section is in the upper part of the screen
+//     };
+
+//     const sectionObserver = new IntersectionObserver((entries, observer) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 const targetId = entry.target.id;
+                
+//                 navLinks.forEach(link => {
+//                     link.classList.remove('active');
+//                     if (link.getAttribute('href') === `#${targetId}`) {
+//                         link.classList.add('active');
+//                     }
+//                 });
+//             }
+//         });
+//     }, observerOptions);
+
+//     contentSections.forEach(section => sectionObserver.observe(section));
+// }
+
+
+const legalNav = document.querySelector('.legal-nav');
+
+// Only run this code if we are on a page with legal navigation
+if (legalNav) {
+    const navLinks = legalNav.querySelectorAll('a');
+    const contentSections = document.querySelectorAll('.legal-content section');
+
+    // --- NEW: Handle clicks for instant feedback ---
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Remove active class from all links
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            // Add active class to the one that was just clicked
+            link.classList.add('active');
+        });
+    });
+
+    // --- This part handles highlighting as the user SCROLLS ---
+    const observerOptions = {
+        rootMargin: '-30% 0px -65% 0px', // Adjusted margins to feel more accurate
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetId = entry.target.id;
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    contentSections.forEach(section => sectionObserver.observe(section));
+}
+
+// --- Interactive Careers Page Accordion ---
+const openingsList = document.querySelector('.openings-list');
+if (openingsList) {
+    const allCards = openingsList.querySelectorAll('.opening-card');
+    
+    allCards.forEach(card => {
+        const button = card.querySelector('.opening-card-visible');
+        
+        button.addEventListener('click', () => {
+            const wasOpen = card.classList.contains('open');
+
+            // Close all other cards
+            allCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('open');
+                    const otherButtonText = otherCard.querySelector('.opening-action .btn span');
+                    if (otherButtonText) otherButtonText.textContent = 'View Details';
+                }
+            });
+
+            // Toggle the clicked card
+            card.classList.toggle('open');
+            const buttonText = card.querySelector('.opening-action .btn span');
+            
+            // Update button text based on new state
+            if (!wasOpen) {
+                if(buttonText) buttonText.textContent = 'Hide Details';
+            } else {
+                if(buttonText) buttonText.textContent = 'View Details';
+            }
+        });
+    });
+}
+
+// --- Professional Student Dashboard Sidebar Toggle ---
+const dashboardLayout = document.querySelector('.dashboard-layout-pro');
+
+if (dashboardLayout) {
+    const sidebar = dashboardLayout.querySelector('.sidebar-pro');
+    const toggleButton = dashboardLayout.querySelector('.sidebar-toggle-btn');
+    
+    // Check for toggle button before adding listener
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            const body = document.body;
+            body.classList.toggle('sidebar-collapsed');
+        });
+    }
+}
